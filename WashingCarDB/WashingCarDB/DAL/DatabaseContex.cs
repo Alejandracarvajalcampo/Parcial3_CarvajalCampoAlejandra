@@ -1,23 +1,25 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Metrics;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WashingCarDB.DAL.Entities
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext<User>
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
 
         }
-        public DbSet<Services> Countries { get; set; }
-        public DbSet<Vehicles> Categories { get; set; }
-        public DbSet<VehicleDetails> States { get; set; }
+        public DbSet<Services> Services { get; set; }
+        public DbSet<Vehicles> Vehicles { get; set; }
+        public DbSet<VehicleDetails> VehiclesDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Services>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<Vehicles>().HasIndex(c => c.NumberPlate).IsUnique();
+            modelBuilder.Entity<VehicleDetails>().HasIndex(c => c.Id).IsUnique();
 
         }
     }

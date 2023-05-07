@@ -13,4 +13,6 @@ public class VehicleDetails: Entity
     [Display(Name = "Fecha de entrega")]
     public string DeliveryDate { get; set; }
 
+    public ICollection<Vehicles> Vehicles { get; set; }
+
 }

@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\DAL",
-    "\\DAL\\Entities",
-    "\\obj"
+    "\\DAL\\Entities"
   ],
-  "SelectedNode": "\\WashingCarDB.csproj",
+  "SelectedNode": "\\WashingCarDB.csproj.user",
   "PreviewInSolutionExplorer": false
 }

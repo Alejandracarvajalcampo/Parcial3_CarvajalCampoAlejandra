@@ -16,5 +16,9 @@ public class Vehicles : Entity
     [Required(ErrorMessage = "El campo {0} es oblilgatorio.")]
     public string NumberPlate { get; set; }
 
+    public ICollection<Services> services { get; set; }
+
+    public VehicleDetails VehicleDetails { get; set; }  
+
 
 }

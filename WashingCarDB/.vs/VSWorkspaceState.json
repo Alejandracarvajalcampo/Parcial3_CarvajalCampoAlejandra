@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WashingCarDB",
+    "\\WashingCarDB\\DAL",
+    "\\WashingCarDB\\DAL\\Entities",
+    "\\WashingCarDB\\Helper",
+    "\\WashingCarDB\\Models",
+    "\\WashingCarDB\\Services",
+    "\\WashingCarDB\\Views",
+    "\\WashingCarDB\\Views\\Account",
+    "\\WashingCarDB\\Views\\Shared",
+    "\\WashingCarDB\\Views\\Shared\\PartialViews"
+  ],
+  "PreviewInSolutionExplorer": false
+}

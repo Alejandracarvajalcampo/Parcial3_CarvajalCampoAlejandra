@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WashingCarDB",
+    "\\WashingCarDB\\WashingCarDB",
+    "\\WashingCarDB\\WashingCarDB\\Views",
+    "\\WashingCarDB\\WashingCarDB\\Views\\User"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\WashingCarDB\\WashingCarDB\\Views\\User\\CreateAdmin.cshtml",
   "PreviewInSolutionExplorer": false
 }
