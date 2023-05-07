@@ -1,4 +1,5 @@
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\bin\Debug\net6.0\Views\Home\Index.cshtml
+C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\bin\Debug\net6.0\Views\Shared\_Layout.cshtml
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\bin\Debug\net6.0\appsettings.json
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\bin\Debug\net6.0\WashingCarDB.staticwebassets.runtime.json
@@ -560,6 +561,7 @@ C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\ne
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\scopedcss\bundle\WashingCarDB.styles.css
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\scopedcss\projectbundle\WashingCarDB.bundle.scp.css
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\WashingCarDB.csproj.CopyComplete
@@ -568,5 +570,3 @@ C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\ne
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\WashingCarDB.pdb
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\WashingCarDB.genruntimeconfig.cache
 C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\ref\WashingCarDB.dll
-C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\bin\Debug\net6.0\Views\Shared\_Layout.cshtml
-C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

@@ -27,7 +27,7 @@ namespace WashingCarDB.Controllers
                           Problem("Entity set 'DatabaseContext.States'  is null.");
         }
 
-        // GET: VehicleDetails/Details/5
+        // GET: VehicleDetails/Details
         public async Task<IActionResult> Details()
         {
             if (_context.VehiclesDetails == null)

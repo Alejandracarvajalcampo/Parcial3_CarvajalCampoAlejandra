@@ -27,7 +27,7 @@ namespace WashingCarDB.Controllers
               return _context.Vehicles != null ? 
                           View(await _context.Vehicles
                           .ToListAsync()) :
-                          Problem("Entity set 'DatabaseContext.Categories'  is null.");
+                          Problem("Entity set 'DatabaseContext.Vehicles'  is null.");
         }
 
         // GET: Vehicles/Details/5

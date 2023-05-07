@@ -16,20 +16,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\Alejandra Carvajal C\Desktop\xxx\WashingCarDB\WashingCarDB
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Account/ChangePassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Account/EditUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0VXNlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Account/Unauthorized.cshtml]
@@ -52,18 +40,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Services/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Services/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Services/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Services/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,10 +60,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/VehicleDetails/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWNsZURldGFpbHNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/VehicleDetails/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWNsZURldGFpbHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -102,10 +74,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Vehicles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWNsZXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Vehicles/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWNsZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Alejandra Carvajal C/Desktop/xxx/WashingCarDB/WashingCarDB/Views/Vehicles/Details.cshtml]

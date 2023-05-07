@@ -58,36 +58,6 @@ namespace WashingCarDB.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult ChangePassword()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel changePasswordViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                if (changePasswordViewModel.OldPassword == changePasswordViewModel.NewPassword)
-                {
-                    ModelState.AddModelError(string.Empty, "Debes ingresar una contraseña diferente.");
-                    return View(changePasswordViewModel);
-                }
-
-                User user = await _userHelper.GetUserAsync(User.Identity.Name);
-
-                if (user != null)
-                {
-                    IdentityResult result = await _userHelper.ChangePasswordAsync(user, changePasswordViewModel.OldPassword, changePasswordViewModel.NewPassword);
-                    if (result.Succeeded) return RedirectToAction("EditUser");
-                    else ModelState.AddModelError(string.Empty, result.Errors.FirstOrDefault().Description);
-                }
-                else ModelState.AddModelError(string.Empty, "Usuario no encontrado");
-            }
-
-            return View(changePasswordViewModel);
-        }
       
     }
 }

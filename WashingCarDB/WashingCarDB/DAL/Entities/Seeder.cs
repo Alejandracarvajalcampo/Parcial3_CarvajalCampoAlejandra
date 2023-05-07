@@ -21,6 +21,7 @@ namespace WashingCarDB.DAL.Entities
             await PopulateRolesAsync();
             await PopulateUserAsync("aleja","carvajal","1215445", "admin_role@yopmail.com", UserType.Admin);
             await PopulateUserAsync("marta", "campo", "454545", "client_role@yopmail.com", UserType.Client);
+            await PopulateUserAsync("Paola", "velazques", "215", "client_role_2@yopmail.com", UserType.Client);
 
             await _context.SaveChangesAsync();
         }

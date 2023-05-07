@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<WashingCarDB.DAL.Entities.VehicleDetail>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Servicios en proceso";
 }
 
-<h1>Index</h1>
+<h1>Servicios en proceso</h1>
 
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehicle)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Vehicle.Service.Name)
             </th>
@@ -29,6 +32,9 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Vehicle.NumberPlate)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Vehicle.Service.Name)
                 </td>
                 <td>
@@ -41,7 +47,7 @@
                     @Html.DisplayFor(modelItem => item.DeliveryDate)
                 </td>
             <td>
-                    <a asp-action="Edit" class="btn btn-outline-primary" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Edit" class="btn btn-outline-primary" asp-route-id="@item.Id">Editar</a>
             </td>
             </tr>
         }
