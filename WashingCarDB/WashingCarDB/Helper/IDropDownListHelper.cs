@@ -8,6 +8,7 @@ namespace WashingCarDB.Helper
         Task<IEnumerable<SelectListItem>> GetDDLVehiclesAsync();
 
         Task<IEnumerable<SelectListItem>> GetDDLServicesAsync();
+        Task<IEnumerable<SelectListItem>> GetDDLServicesAsync(Guid serviceId);
 
         Task<IEnumerable<SelectListItem>> GetDDLVehiclesDetailsAsync();
 

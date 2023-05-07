@@ -1,29 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WashingCarDB.DAL;
 using WashingCarDB.DAL.Entities;
+using WashingCarDB.Helper;
+using WashingCarDB.Models;
 
 namespace WashingCarDB.Controllers
 {
     public class VehiclesController : Controller
     {
         private readonly DatabaseContext _context;
+        private readonly IDropDownListsHelper _ddlHelper;
 
-        public VehiclesController(DatabaseContext context)
+        public VehiclesController(DatabaseContext context, IDropDownListsHelper dropDownListsHelper)
         {
             _context = context;
+            _ddlHelper = dropDownListsHelper;
         }
 
         // GET: Vehicles
         public async Task<IActionResult> Index()
         {
               return _context.Vehicles != null ? 
-                          View(await _context.Vehicles.ToListAsync()) :
+                          View(await _context.Vehicles
+                          .ToListAsync()) :
                           Problem("Entity set 'DatabaseContext.Categories'  is null.");
         }
 
@@ -46,9 +46,17 @@ namespace WashingCarDB.Controllers
         }
 
         // GET: Vehicles/Create
-        public IActionResult Create()
+        [HttpGet]
+        public async Task<IActionResult> Create()
         {
-            return View();
+
+            VehicleViewModel vehicleViewModel = new()
+            {
+                Id = Guid.NewGuid(),
+                Services = await _ddlHelper.GetDDLServicesAsync(),
+            };
+            
+            return View(vehicleViewModel);
         }
 
         // POST: Vehicles/Create
@@ -56,16 +64,29 @@ namespace WashingCarDB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Owner,NumberPlate,Id")] Vehicle vehicles)
+        public async Task<IActionResult> Create(VehicleViewModel vehicleViewModel)
         {
             if (ModelState.IsValid)
             {
-                vehicles.Id = Guid.NewGuid();
-                _context.Add(vehicles);
+            
+                vehicleViewModel.Id = Guid.NewGuid();
+                vehicleViewModel.Service = await _context.Services.FindAsync(vehicleViewModel.ServiceId);
+                vehicleViewModel.Services = await _ddlHelper.GetDDLServicesAsync(vehicleViewModel.ServiceId);
+
+                VehicleDetail vehicleDetail = new() {
+
+                    Id = Guid.NewGuid(),
+                    CreationDate = DateTime.Now,
+                    Vehicle = vehicleViewModel,
+
+
+                };
+                _context.Add(vehicleViewModel);
+                _context.Add(vehicleDetail);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(vehicles);
+            return View(vehicleViewModel);
         }
 
         // GET: Vehicles/Edit/5
@@ -160,5 +181,6 @@ namespace WashingCarDB.Controllers
         {
           return (_context.Vehicles?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
     }
 }

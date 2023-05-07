@@ -56,6 +56,28 @@ namespace WashingCarDB.Services
             return listServices;
         }
 
+        public async Task<IEnumerable<SelectListItem>> GetDDLServicesAsync(Guid serviceId)
+        {
+            List<SelectListItem> listServices = await _context.Services
+                 .Where(s => s.Id == serviceId)
+                 .Select(s => new SelectListItem
+                {
+                    Text = s.Name,
+                    Value = s.Id.ToString(),
+                })
+                .OrderBy(s => s.Text)
+                .ToListAsync();
+
+            listServices.Insert(0, new SelectListItem
+            {
+                Text = "Selecione un servicio...",
+                Value = Guid.Empty.ToString(),
+                Selected = true
+            });
+
+            return listServices;
+        }
+
         public async Task<IEnumerable<SelectListItem>> GetDDLVehiclesDetailsAsync()
         {
             List<SelectListItem> listVehiclesDetails = await _context.VehiclesDetails

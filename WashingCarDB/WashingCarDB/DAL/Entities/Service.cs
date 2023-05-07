@@ -11,8 +11,6 @@ public class Service: Entity
     public String Name { get; set; }
     public Decimal Price { get; set; }
 
-    public Vehicle? Vehicle { get; set; }
-
 
 }
 

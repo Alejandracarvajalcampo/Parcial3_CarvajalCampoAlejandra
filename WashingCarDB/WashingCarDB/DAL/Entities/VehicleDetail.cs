@@ -7,11 +7,11 @@ public class VehicleDetail: Entity
 {
 
     [Display(Name = "Fecha de creacion")]
-    public string CreationDate { get; set; }
+    public DateTime? CreationDate { get; set; }
 
     [Display(Name = "Fecha de entrega")]
-    public string? DeliveryDate { get; set; }
+    public DateTime? DeliveryDate { get; set; }
 
-    public ICollection<Vehicle>? Vehicles { get; set; }
+    public Vehicle? Vehicle { get; set; }
 
 }
