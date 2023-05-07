@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using WashingCarDB.DAL.Entities;
 using WashingCarDB.Helper;
+using WashingCarDB.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Account/Unauthorized";
     options.AccessDeniedPath = "/Account/Unauthorized";
 });
+
 
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();

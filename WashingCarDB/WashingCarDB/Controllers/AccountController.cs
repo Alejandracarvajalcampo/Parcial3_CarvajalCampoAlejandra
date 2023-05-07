@@ -13,14 +13,12 @@ namespace WashingCarDB.Controllers
         private readonly IUserHelper _userHelper;
         private readonly DatabaseContext _context;
         private readonly IDropDownListsHelper _ddlHelper;
-        private readonly IAzureBlobHelper _azureBlobHelper;
 
-        public AccountController(IUserHelper userHelper, DatabaseContext context, IDropDownListsHelper dropDownListsHelper, IAzureBlobHelper azureBlobHelper)
+        public AccountController(IUserHelper userHelper, DatabaseContext context, IDropDownListsHelper dropDownListsHelper)
         {
             _userHelper = userHelper;
             _context = context;
             _ddlHelper = dropDownListsHelper;
-            _azureBlobHelper = azureBlobHelper;
         }
 
         [HttpGet]

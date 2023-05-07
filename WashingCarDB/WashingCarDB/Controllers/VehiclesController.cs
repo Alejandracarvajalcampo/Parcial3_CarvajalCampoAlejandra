@@ -22,20 +22,20 @@ namespace WashingCarDB.Controllers
         // GET: Vehicles
         public async Task<IActionResult> Index()
         {
-              return _context.Categories != null ? 
-                          View(await _context.Categories.ToListAsync()) :
+              return _context.Vehicles != null ? 
+                          View(await _context.Vehicles.ToListAsync()) :
                           Problem("Entity set 'DatabaseContext.Categories'  is null.");
         }
 
         // GET: Vehicles/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Categories == null)
+            if (id == null || _context.Vehicles == null)
             {
                 return NotFound();
             }
 
-            var vehicles = await _context.Categories
+            var vehicles = await _context.Vehicles
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehicles == null)
             {
@@ -56,7 +56,7 @@ namespace WashingCarDB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Owner,NumberPlate,Id")] Vehicles vehicles)
+        public async Task<IActionResult> Create([Bind("Owner,NumberPlate,Id")] Vehicle vehicles)
         {
             if (ModelState.IsValid)
             {
@@ -71,12 +71,12 @@ namespace WashingCarDB.Controllers
         // GET: Vehicles/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Categories == null)
+            if (id == null || _context.Vehicles == null)
             {
                 return NotFound();
             }
 
-            var vehicles = await _context.Categories.FindAsync(id);
+            var vehicles = await _context.Vehicles.FindAsync(id);
             if (vehicles == null)
             {
                 return NotFound();
@@ -89,7 +89,7 @@ namespace WashingCarDB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Owner,NumberPlate,Id")] Vehicles vehicles)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Owner,NumberPlate,Id")] Vehicle vehicles)
         {
             if (id != vehicles.Id)
             {
@@ -122,12 +122,12 @@ namespace WashingCarDB.Controllers
         // GET: Vehicles/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Categories == null)
+            if (id == null || _context.Vehicles == null)
             {
                 return NotFound();
             }
 
-            var vehicles = await _context.Categories
+            var vehicles = await _context.Vehicles
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehicles == null)
             {
@@ -142,14 +142,14 @@ namespace WashingCarDB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Categories == null)
+            if (_context.Vehicles == null)
             {
                 return Problem("Entity set 'DatabaseContext.Categories'  is null.");
             }
-            var vehicles = await _context.Categories.FindAsync(id);
+            var vehicles = await _context.Vehicles.FindAsync(id);
             if (vehicles != null)
             {
-                _context.Categories.Remove(vehicles);
+                _context.Vehicles.Remove(vehicles);
             }
             
             await _context.SaveChangesAsync();
@@ -158,7 +158,7 @@ namespace WashingCarDB.Controllers
 
         private bool VehiclesExists(Guid id)
         {
-          return (_context.Categories?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Vehicles?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

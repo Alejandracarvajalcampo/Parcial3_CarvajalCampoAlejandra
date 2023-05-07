@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WashingCarDB.DAL.Entities;
-using WashingCarDB.Enums;
+﻿using WashingCarDB.Enums;
 using WashingCarDB.Helper;
 
 namespace WashingCarDB.DAL.Entities
@@ -20,8 +18,9 @@ namespace WashingCarDB.DAL.Entities
         {
             await _context.Database.EnsureCreatedAsync();
             await PopulateServicesAsync();
-            await PopulateUserAsync("admin_role@yopmail.com","aleja","carvajal","1215445", UserType.Admin);
-            await PopulateUserAsync("client_role@yopmail.com","marta", "campo", "454545", UserType.Client);
+            await PopulateRolesAsync();
+            await PopulateUserAsync("aleja","carvajal","1215445", "admin_role@yopmail.com", UserType.Admin);
+            await PopulateUserAsync("marta", "campo", "454545", "client_role@yopmail.com", UserType.Client);
 
             await _context.SaveChangesAsync();
         }
@@ -29,12 +28,12 @@ namespace WashingCarDB.DAL.Entities
         {
             if (!_context.Services.Any())
             {
-                _context.Services.Add(new Services { Name = "Lavada simple", Price = 25000 });
-                _context.Services.Add(new Services { Name = "Lavada + Polishada", Price = 50000 });
-                _context.Services.Add(new Services { Name = "Lavada + Aspirada de Cojinería", Price = 30000 });
-                _context.Services.Add(new Services { Name = "Lavada Full:", Price = 65000 });
-                _context.Services.Add(new Services { Name = "Lavada en seco del Motor", Price = 80000 });
-                _context.Services.Add(new Services { Name = "Lavada Chasis", Price = 90000 });
+                _context.Services.Add(new Service { Name = "Lavada simple", Price = 25000 });
+                _context.Services.Add(new Service { Name = "Lavada + Polishada", Price = 50000 });
+                _context.Services.Add(new Service { Name = "Lavada + Aspirada de Cojinería", Price = 30000 });
+                _context.Services.Add(new Service { Name = "Lavada Full:", Price = 65000 });
+                _context.Services.Add(new Service { Name = "Lavada en seco del Motor", Price = 80000 });
+                _context.Services.Add(new Service { Name = "Lavada Chasis", Price = 90000 });
             }
 
         }
@@ -44,7 +43,12 @@ namespace WashingCarDB.DAL.Entities
             await _userHelper.CheckRoleAsync(UserType.Client.ToString());
 
         }
-        private async Task PopulateUserAsync(string email,string firstName, string lastName,string documento,UserType userType)
+        private async Task PopulateUserAsync(
+            string firstName,
+            string lastName,
+            string document,
+            string email,
+            UserType userType)
         {
             User user = await _userHelper.GetUserAsync(email);
 
@@ -54,7 +58,8 @@ namespace WashingCarDB.DAL.Entities
                 {
                     FirstName= firstName,
                     LastName= lastName,
-                    Document= documento,
+                    Document= document,
+                    UserName = email,
                     Email = email,
                     UserType = userType,
                 };

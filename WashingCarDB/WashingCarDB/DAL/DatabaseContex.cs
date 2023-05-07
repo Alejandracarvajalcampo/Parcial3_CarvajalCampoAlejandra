@@ -10,34 +10,18 @@ namespace WashingCarDB.DAL.Entities
         {
 
         }
-        public DbSet<Services> Services { get; set; }
-        public DbSet<Vehicles> Vehicles { get; set; }
-        public DbSet<VehicleDetails> VehiclesDetails { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<VehicleDetail> VehiclesDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Services>().HasIndex(c => c.Name).IsUnique();
-            modelBuilder.Entity<Vehicles>().HasIndex(c => c.NumberPlate).IsUnique();
-            modelBuilder.Entity<VehicleDetails>().HasIndex(c => c.Id).IsUnique();
+            modelBuilder.Entity<Service>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<Vehicle>().HasIndex(c => c.NumberPlate).IsUnique();
+            modelBuilder.Entity<VehicleDetail>().HasIndex(c => c.Id).IsUnique();
 
         }
     }
 
 }
-
-
-
-
-
-
-//    protected override void OnModelCreating(ModelBuilder modelBuilder)
-//    {
-//        base.OnModelCreating(modelBuilder);
-//        modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
-//        modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
-//        modelBuilder.Entity<State>().HasIndex("Name", "CountryId").IsUnique(); // índices compuestos
-//        modelBuilder.Entity<City>().HasIndex("Name", "StateId").IsUnique(); // índices compuestos
-//    }
-//}
-//}

@@ -29,14 +29,17 @@ namespace WashingCarDB.Services
             return await _userManager.CreateAsync(user, password);
         }
 
-        public async Task<User> AddUserAsync(AddUserViewModel addUserViewModel)
+        public async Task<User?> AddUserAsync(AddUserViewModel addUserViewModel)
         {
             User user = new()
             {
-
                 Email = addUserViewModel.Username,
                 UserName = addUserViewModel.Username,
-                UserType = addUserViewModel.UserType
+                UserType = addUserViewModel.UserType,
+                Document = addUserViewModel.Document,
+                FirstName = addUserViewModel.FirstName,
+                LastName = addUserViewModel.LastName
+
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, addUserViewModel.Password);
@@ -98,4 +101,4 @@ namespace WashingCarDB.Services
              .FirstOrDefaultAsync(u => u.Id == userId.ToString());
         }
     }
-}
+    }

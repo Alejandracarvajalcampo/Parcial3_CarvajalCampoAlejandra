@@ -22,20 +22,20 @@ namespace WashingCarDB.Controllers
         // GET: VehicleDetails
         public async Task<IActionResult> Index()
         {
-              return _context.States != null ? 
-                          View(await _context.States.ToListAsync()) :
+              return _context.VehiclesDetails != null ? 
+                          View(await _context.VehiclesDetails.ToListAsync()) :
                           Problem("Entity set 'DatabaseContext.States'  is null.");
         }
 
         // GET: VehicleDetails/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.States == null)
+            if (id == null || _context.VehiclesDetails == null)
             {
                 return NotFound();
             }
 
-            var vehicleDetails = await _context.States
+            var vehicleDetails = await _context.VehiclesDetails
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehicleDetails == null)
             {
@@ -56,7 +56,7 @@ namespace WashingCarDB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CreationDate,DeliveryDate,Id")] VehicleDetails vehicleDetails)
+        public async Task<IActionResult> Create([Bind("CreationDate,DeliveryDate,Id")] VehicleDetail vehicleDetails)
         {
             if (ModelState.IsValid)
             {
@@ -71,12 +71,12 @@ namespace WashingCarDB.Controllers
         // GET: VehicleDetails/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.States == null)
+            if (id == null || _context.VehiclesDetails == null)
             {
                 return NotFound();
             }
 
-            var vehicleDetails = await _context.States.FindAsync(id);
+            var vehicleDetails = await _context.VehiclesDetails.FindAsync(id);
             if (vehicleDetails == null)
             {
                 return NotFound();
@@ -89,7 +89,7 @@ namespace WashingCarDB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CreationDate,DeliveryDate,Id")] VehicleDetails vehicleDetails)
+        public async Task<IActionResult> Edit(Guid id, [Bind("CreationDate,DeliveryDate,Id")] VehicleDetail vehicleDetails)
         {
             if (id != vehicleDetails.Id)
             {
@@ -122,12 +122,12 @@ namespace WashingCarDB.Controllers
         // GET: VehicleDetails/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.States == null)
+            if (id == null || _context.VehiclesDetails == null)
             {
                 return NotFound();
             }
 
-            var vehicleDetails = await _context.States
+            var vehicleDetails = await _context.VehiclesDetails
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehicleDetails == null)
             {
@@ -142,14 +142,14 @@ namespace WashingCarDB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.States == null)
+            if (_context.VehiclesDetails == null)
             {
                 return Problem("Entity set 'DatabaseContext.States'  is null.");
             }
-            var vehicleDetails = await _context.States.FindAsync(id);
+            var vehicleDetails = await _context.VehiclesDetails.FindAsync(id);
             if (vehicleDetails != null)
             {
-                _context.States.Remove(vehicleDetails);
+                _context.VehiclesDetails.Remove(vehicleDetails);
             }
             
             await _context.SaveChangesAsync();
@@ -158,7 +158,7 @@ namespace WashingCarDB.Controllers
 
         private bool VehicleDetailsExists(Guid id)
         {
-          return (_context.States?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.VehiclesDetails?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

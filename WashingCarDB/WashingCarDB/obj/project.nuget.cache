@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Hl2sO3fcTk050ZC/CNYxV+Lz49eao4FPmDqSUlcRvQeUq7S1+BDqL8ix2AtmBkRKTnDTIbvZr2n6EiYYScMr7A==",
+  "dgSpecHash": "PpSIGU9lMCFwYd+fmRV4jv0A1xtEl91f7Kjv2yoLnW7IoHvdlGi3RI7DO0tjo1IyIXxQXBuWZSPkaP9YLJH6iA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alejandra Carvajal C\\Desktop\\xxx\\WashingCarDB\\WashingCarDB\\WashingCarDB.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,8 @@
     "C:\\Users\\Alejandra Carvajal C\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.0\\microsoft.aspnetcore.cryptography.internal.6.0.0.nupkg.sha512",
     "C:\\Users\\Alejandra Carvajal C\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.0\\microsoft.aspnetcore.cryptography.keyderivation.6.0.0.nupkg.sha512",
     "C:\\Users\\Alejandra Carvajal C\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.0\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.0.nupkg.sha512",
+    "C:\\Users\\Alejandra Carvajal C\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.0\\microsoft.aspnetcore.mvc.razor.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Alejandra Carvajal C\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\6.0.0\\microsoft.aspnetcore.mvc.razor.runtimecompilation.6.0.0.nupkg.sha512",
     "C:\\Users\\Alejandra Carvajal C\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\Alejandra Carvajal C\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\Alejandra Carvajal C\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",

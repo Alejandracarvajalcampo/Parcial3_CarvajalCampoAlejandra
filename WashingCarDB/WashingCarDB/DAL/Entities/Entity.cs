@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
+
 
 namespace WashingCarDB.DAL.Entities
 {
@@ -7,7 +7,7 @@ namespace WashingCarDB.DAL.Entities
     {
         [Key]
         [Required]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } 
     }
 }
 

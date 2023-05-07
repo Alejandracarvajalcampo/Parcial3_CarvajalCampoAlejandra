@@ -1,6 +1,6 @@
 namespace WashingCarDB.Models
 {
-    public class AddUserViewModel
+    public class ErrorViewModel
     {
         public string? RequestId { get; set; }
 

@@ -33,4 +33,4 @@ namespace WashingCarDB.DAL.Entities
 
     }
 }
-}
+

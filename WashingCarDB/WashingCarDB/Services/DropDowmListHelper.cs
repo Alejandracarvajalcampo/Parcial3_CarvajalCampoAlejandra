@@ -58,7 +58,7 @@ namespace WashingCarDB.Services
 
         public async Task<IEnumerable<SelectListItem>> GetDDLVehiclesDetailsAsync()
         {
-            List<SelectListItem> listCountries = await _context.VehiclesDetails
+            List<SelectListItem> listVehiclesDetails = await _context.VehiclesDetails
                 .Select(c => new SelectListItem
                 {
                     Text = "Detalle", //Col
@@ -67,14 +67,14 @@ namespace WashingCarDB.Services
                 .OrderBy(c => c.Text)
                 .ToListAsync();
 
-            listCountries.Insert(0, new SelectListItem
+            listVehiclesDetails.Insert(0, new SelectListItem
             {
                 Text = "Selecione un servicio...",
                 Value = Guid.Empty.ToString(),
                 Selected = true
             });
 
-            return listCountries;
+            return listVehiclesDetails;
         }
 
         public async Task<IEnumerable<SelectListItem>> GetDDLVehiclesAsync(string numberPlate)

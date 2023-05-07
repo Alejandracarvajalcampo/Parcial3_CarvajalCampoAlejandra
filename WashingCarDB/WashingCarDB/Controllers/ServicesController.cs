@@ -22,20 +22,20 @@ namespace WashingCarDB.Controllers
         // GET: Services
         public async Task<IActionResult> Index()
         {
-              return _context.Countries != null ? 
-                          View(await _context.Countries.ToListAsync()) :
-                          Problem("Entity set 'DatabaseContext.Countries'  is null.");
+              return _context.Services != null ? 
+                          View(await _context.Services.ToListAsync()) :
+                          Problem("Entity set 'DatabaseContext.Services'  is null.");
         }
 
         // GET: Services/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Countries == null)
+            if (id == null || _context.Services == null)
             {
                 return NotFound();
             }
 
-            var services = await _context.Countries
+            var services = await _context.Services
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (services == null)
             {
@@ -56,27 +56,27 @@ namespace WashingCarDB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Price,Id")] Services services)
+        public async Task<IActionResult> Create([Bind("Name,Price,Id")] Service service)
         {
             if (ModelState.IsValid)
             {
-                services.Id = Guid.NewGuid();
-                _context.Add(services);
+                service.Id = Guid.NewGuid();
+                _context.Add(service);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(services);
+            return View(service);
         }
 
         // GET: Services/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Countries == null)
+            if (id == null || _context.Services == null)
             {
                 return NotFound();
             }
 
-            var services = await _context.Countries.FindAsync(id);
+            var services = await _context.Services.FindAsync(id);
             if (services == null)
             {
                 return NotFound();
@@ -89,9 +89,9 @@ namespace WashingCarDB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Name,Price,Id")] Services services)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Name,Price,Id")] Service service)
         {
-            if (id != services.Id)
+            if (id != service.Id)
             {
                 return NotFound();
             }
@@ -100,12 +100,12 @@ namespace WashingCarDB.Controllers
             {
                 try
                 {
-                    _context.Update(services);
+                    _context.Update(service);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ServicesExists(services.Id))
+                    if (!ServicesExists(service.Id))
                     {
                         return NotFound();
                     }
@@ -116,18 +116,18 @@ namespace WashingCarDB.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(services);
+            return View(service);
         }
 
         // GET: Services/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Countries == null)
+            if (id == null || _context.Services == null)
             {
                 return NotFound();
             }
 
-            var services = await _context.Countries
+            var services = await _context.Services
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (services == null)
             {
@@ -142,14 +142,14 @@ namespace WashingCarDB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Countries == null)
+            if (_context.Services == null)
             {
-                return Problem("Entity set 'DatabaseContext.Countries'  is null.");
+                return Problem("Entity set 'DatabaseContext.Services'  is null.");
             }
-            var services = await _context.Countries.FindAsync(id);
+            var services = await _context.Services.FindAsync(id);
             if (services != null)
             {
-                _context.Countries.Remove(services);
+                _context.Services.Remove(services);
             }
             
             await _context.SaveChangesAsync();
@@ -158,7 +158,7 @@ namespace WashingCarDB.Controllers
 
         private bool ServicesExists(Guid id)
         {
-          return (_context.Countries?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Services?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
