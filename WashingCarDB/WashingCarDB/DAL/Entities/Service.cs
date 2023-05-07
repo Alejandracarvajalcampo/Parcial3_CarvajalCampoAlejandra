@@ -5,10 +5,12 @@ namespace WashingCarDB.DAL.Entities;
 public class Service: Entity
 {
 
-    [Display  (Name = "Servicios")]
+    [Display  (Name = "Servicio")]
     [MaxLength (100, ErrorMessage = "El campo {0} debe ser de {1} caracteres.")]
     [Required(ErrorMessage = "El campo {0} es oblilgatorio.")]
     public String Name { get; set; }
+
+    [Display(Name = "Precio")]
     public Decimal Price { get; set; }
 
 

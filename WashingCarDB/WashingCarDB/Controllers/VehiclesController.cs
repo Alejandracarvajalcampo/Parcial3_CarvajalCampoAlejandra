@@ -4,17 +4,20 @@ using Microsoft.EntityFrameworkCore;
 using WashingCarDB.DAL.Entities;
 using WashingCarDB.Helper;
 using WashingCarDB.Models;
+using WashingCarDB.Services;
 
 namespace WashingCarDB.Controllers
 {
     public class VehiclesController : Controller
     {
         private readonly DatabaseContext _context;
+        private readonly IUserHelper _userHelper;
         private readonly IDropDownListsHelper _ddlHelper;
 
-        public VehiclesController(DatabaseContext context, IDropDownListsHelper dropDownListsHelper)
+        public VehiclesController(DatabaseContext context, IUserHelper userHelper, IDropDownListsHelper dropDownListsHelper)
         {
             _context = context;
+            _userHelper = userHelper;
             _ddlHelper = dropDownListsHelper;
         }
 
@@ -49,12 +52,20 @@ namespace WashingCarDB.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            User user = await _userHelper.GetUserAsync(User.Identity.Name);
+            var nameUser = "";
+            if (user != null)
+            {
+                nameUser = user.FullName;
+            }
 
             VehicleViewModel vehicleViewModel = new()
             {
                 Id = Guid.NewGuid(),
                 Services = await _ddlHelper.GetDDLServicesAsync(),
+                Owner = nameUser,
             };
+
             
             return View(vehicleViewModel);
         }
@@ -72,7 +83,7 @@ namespace WashingCarDB.Controllers
                 vehicleViewModel.Id = Guid.NewGuid();
                 vehicleViewModel.Service = await _context.Services.FindAsync(vehicleViewModel.ServiceId);
                 vehicleViewModel.Services = await _ddlHelper.GetDDLServicesAsync(vehicleViewModel.ServiceId);
-
+               
                 VehicleDetail vehicleDetail = new() {
 
                     Id = Guid.NewGuid(),
@@ -81,8 +92,10 @@ namespace WashingCarDB.Controllers
 
 
                 };
+          
                 _context.Add(vehicleViewModel);
                 _context.Add(vehicleDetail);
+                
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

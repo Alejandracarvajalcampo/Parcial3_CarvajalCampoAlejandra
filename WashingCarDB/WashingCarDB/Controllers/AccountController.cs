@@ -1,10 +1,8 @@
 ﻿using global::WashingCarDB.DAL.Entities;
-using global::WashingCarDB.Enums;
 using global::WashingCarDB.Helper;
 using global::WashingCarDB.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace WashingCarDB.Controllers
 {

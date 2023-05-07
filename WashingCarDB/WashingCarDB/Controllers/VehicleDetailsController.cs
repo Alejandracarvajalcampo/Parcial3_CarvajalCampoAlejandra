@@ -1,42 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WashingCarDB.DAL;
 using WashingCarDB.DAL.Entities;
+using WashingCarDB.Helper;
 
 namespace WashingCarDB.Controllers
 {
     public class VehicleDetailsController : Controller
     {
         private readonly DatabaseContext _context;
+        private readonly IUserHelper _userHelper;
 
-        public VehicleDetailsController(DatabaseContext context)
+        public VehicleDetailsController(DatabaseContext context, IUserHelper userHelper)
         {
             _context = context;
+            _userHelper = userHelper;
         }
 
         // GET: VehicleDetails
         public async Task<IActionResult> Index()
         {
               return _context.VehiclesDetails != null ? 
-                          View(await _context.VehiclesDetails.ToListAsync()) :
+                          View(await _context.VehiclesDetails
+                          .Include(c => c.Vehicle)
+                          .ThenInclude(v => v.Service)
+                          .ToListAsync()) :
                           Problem("Entity set 'DatabaseContext.States'  is null.");
         }
 
         // GET: VehicleDetails/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details()
         {
-            if (id == null || _context.VehiclesDetails == null)
+            if (_context.VehiclesDetails == null)
             {
                 return NotFound();
             }
+            User user = await _userHelper.GetUserAsync(User.Identity.Name);
+            var nameUser= "";
+            if (user != null) {
+                nameUser = user.FullName;
+            }
 
             var vehicleDetails = await _context.VehiclesDetails
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(d => d.Vehicle)
+                .ThenInclude(v => v.Service)
+                .FirstOrDefaultAsync(d => d.Vehicle.Owner == nameUser);
             if (vehicleDetails == null)
             {
                 return NotFound();
@@ -51,22 +58,6 @@ namespace WashingCarDB.Controllers
             return View();
         }
 
-        // POST: VehicleDetails/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CreationDate,DeliveryDate,Id")] VehicleDetail vehicleDetails)
-        {
-            if (ModelState.IsValid)
-            {
-                vehicleDetails.Id = Guid.NewGuid();
-                _context.Add(vehicleDetails);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(vehicleDetails);
-        }
 
         // GET: VehicleDetails/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
